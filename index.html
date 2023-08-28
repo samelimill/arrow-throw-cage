@@ -19,21 +19,22 @@
     </header>
     <!--city input-->
     <div class="row">
-        <aside class="mx-2 col-sm">
-            <h2>Search for a city:</h2>
-            <form id="search-form">
-                <input id="search-input" type="text">
-                <button id="submit" type="submit" aria-label="submit">Submit</button>
+        <aside class="mx-2 col-4">
+            <h2 class="">Search for a city:</h2>
+            <form id="search-form" class="text-center">
+                <input id="search-input" class="text-center w-100" type="text" placeholder="Where to?">
+                <button id="submit" class="btn btn-primary w-100 my-1" type="submit" aria-label="submit">Submit</button>
             </form>
+            <!--search history, append buttons-->
+            <div id="search-history">
+                <div id="history-list" class="d-flex flex-column-reverse"></div>
+            </div>
         </aside>
-        <div class="m-2 col-sm">
-            <ul id="search-options"></ul>
+        <div id='search-option-container' class='col-7 float-right'>
+            <ul id="search-options-list" class="list-unstyled"></ul>
+            <div id="current-weather" class=""></div>
         </div>
     </div>
-        <!--search history of last ten, append buttons-->
-        <div id="search-history">
-            <ul id="history-list"></ul>
-        </div>
     <!--current day of selection-->
     <!--five day forecast grid-->
     <script src="assets/js/script.js"></script>

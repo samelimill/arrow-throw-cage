@@ -4,8 +4,9 @@
 
 body {
     background: linear-gradient(183deg, #00ffbd, #8fe2ff, #8fb1ff, #908fff);
-    background-size: 800% 800%;
-    animation: AnimationName 40s ease infinite;
+    background-size: 100% 100%;
+    height: 100vh;
+    animation: AnimationName 30s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
@@ -19,11 +20,12 @@ body {
     100%{background-position:0% 50%}
 }
 
-h1 {
-    font-family: "Orbitron", sans-serif;
-}
-
+h1,
 h2 {
     font-family: "Orbitron", sans-serif;
 }
 
+
+#submit {
+    font-family: "Orbitron", sans-serif;
+}
