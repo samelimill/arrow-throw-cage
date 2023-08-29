@@ -14,13 +14,13 @@
     <title>5-Day Weather Forecast</title>
 </head>
 <body>
-    <header class="container-fluid">
+    <header>
         <h1 class="text-center m-2">Weather Report</h1> 
     </header>
     <!--city input-->
-    <div class="row">
-        <aside class="mx-1 col-4">
-            <h2 class="">Search for a city:</h2>
+    <div id='main-container' class="row h-100 w-100">
+        <aside class="m-2 col-3 text-center">
+            <h2>Search for a city:</h2>
             <form id="search-form" class="text-center">
                 <input id="search-input" class="text-center w-100" type="text" placeholder="Where to?">
                 <button id="submit" class="btn btn-primary w-100 my-1" type="submit" aria-label="submit">Submit</button>
@@ -28,20 +28,21 @@
             <!--search history, append buttons-->
             <div id="search-history">
                 <div id="history-list" class="d-flex flex-column-reverse"></div>
+                <button id="clear-history" class="btn btn-danger w-100" type="button" aria-label="clear history">Clear History</button>
             </div>
         </aside>
-        <main class='col-7'>
+        <main id="weather-display" class='col-8'>
             <h2 id="main-header"></h2>
             <div id='search-option-container'>
                 <ul id="search-options-list" class="list-unstyled"></ul>
             </div>
-            <div id="forecast-container">
-                <div id="current-weather" class="row"></div>
+            <div id="forecast-container" class="w-100">
+                <div id="current-weather">
+                    <p id="current-results" class="m-2"></p>
+                </div>
                 <div id="forecast" class="row"></div>
             </div>
         </main>
-    <!--current day of selection-->
-    <!--five day forecast grid-->
     <script src="assets/js/script.js"></script>
 </body>
 </html>

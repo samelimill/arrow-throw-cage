@@ -2,10 +2,9 @@
     box-sizing: border-box;
 }
 
-body {
-    background: linear-gradient(183deg, #eccd41, #8fe2ff, #8fb1ff, #191785);
-    background-size: 100% 100%;
-    height: 100vh;
+#main-container {
+    align-self: center;
+    margin: auto;
 }
 
 h1,
