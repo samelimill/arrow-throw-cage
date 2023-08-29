@@ -3,21 +3,9 @@
 }
 
 body {
-    background: linear-gradient(183deg, #00ffbd, #8fe2ff, #8fb1ff, #908fff);
+    background: linear-gradient(183deg, #eccd41, #8fe2ff, #8fb1ff, #191785);
     background-size: 100% 100%;
     height: 100vh;
-    animation: AnimationName 30s ease infinite;
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
 }
 
 h1,

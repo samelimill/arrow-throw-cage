@@ -19,7 +19,7 @@
     </header>
     <!--city input-->
     <div class="row">
-        <aside class="mx-2 col-4">
+        <aside class="mx-1 col-4">
             <h2 class="">Search for a city:</h2>
             <form id="search-form" class="text-center">
                 <input id="search-input" class="text-center w-100" type="text" placeholder="Where to?">
@@ -30,11 +30,16 @@
                 <div id="history-list" class="d-flex flex-column-reverse"></div>
             </div>
         </aside>
-        <div id='search-option-container' class='col-7 float-right'>
-            <ul id="search-options-list" class="list-unstyled"></ul>
-            <div id="current-weather" class=""></div>
-        </div>
-    </div>
+        <main class='col-7'>
+            <h2 id="main-header"></h2>
+            <div id='search-option-container'>
+                <ul id="search-options-list" class="list-unstyled"></ul>
+            </div>
+            <div id="forecast-container">
+                <div id="current-weather" class="row"></div>
+                <div id="forecast" class="row"></div>
+            </div>
+        </main>
     <!--current day of selection-->
     <!--five day forecast grid-->
     <script src="assets/js/script.js"></script>
