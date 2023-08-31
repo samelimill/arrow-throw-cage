@@ -2,6 +2,7 @@
 ![JS badge](https://img.shields.io/badge/javascript-green?logo=javascript)
 ![Boostrap badge](https://img.shields.io/badge/bootstrap-blue?logo=bootstrap)
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/samelimill/arrow-throw-cage)
+
 A simple weather forecast app using JavaScript and Bootstrap.
 
 ## Usage
@@ -14,4 +15,4 @@ I had originally used a CSS form in addition to the HTML and JavaScript forms, b
 ![weather-report-example](https://github.com/samelimill/arrow-throw-cage/assets/139184509/dd4f20f9-367a-4f47-a308-a8bab1005d86)
 
 ## Live Site
-The live site can be found ![here](https://samelimill.github.
+The live site can be found ![here](https://samelimill.github.io/arrow-throw-cage/)
