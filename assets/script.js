@@ -122,18 +122,20 @@ function clearHistory(){
 
 // Function gathers data directly from whichever button is pressed in the history list or the search options list
 function showForecast(data){
+    console.log(data);
     // Weather for current day
     currentWeather.innerHTML= 
-        '<div class="border col-12 bg-opacity-10 bg-info text-center m-2 p-3"><h2>' + data.list[0].dt_txt.slice(5, 10) + '</h2><br/><h2>' + data.list[0].weather[0].description + '</h2><br/><br/>' + 'Temperature: ' + data.list[0].main.temp + ' F <br/>' + 'Wind Speed: ' + data.list[0].wind.speed + ' MPH <br/>' + 'Humidity: ' + data.list[0].main.humidity + '%</div>';
+        '<div class="border col-12 bg-opacity-10 bg-info text-center m-2 p-3"><h2>' + data.list[0].dt_txt.slice(5, 10) + '</h2><br/>' + '<img src="http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png" alt="Icon"/><br/><h2>' + data.list[0].weather[0].description + '</h2><br/><br/>' + 'Temperature: ' + data.list[0].main.temp + ' F <br/>' + 'Wind Speed: ' + data.list[0].wind.speed + ' MPH <br/>' + 'Humidity: ' + data.list[0].main.humidity + '%</div>';
     // Constructs an array of div elements as strings, which are added to the forecast row
     var forecastArr = [];
     for (var i = 7; i<=40; i+=8){
         var date = data.list[i].dt_txt.slice(5, 10);
+        var weatherIcon = data.list[i].weather[0].icon;
         var weather = data.list[i].weather[0].description;
         var temp = data.list[i].main.temp;
         var wind = data.list[i].wind.speed;
         var humidity = data.list[i].main.humidity
-        var singleCard = '<div class="border bg-primary bg-opacity-10 col-s-12 col-md-5 col-xl-2 m-2 p-3 text-center"><h3>' + date + '</h3><br/>' + weather + "<br/><br/><u>Temp:</u><br/>" + temp + 'F<br/><u>Wind speed:</u><br/>' + wind + 'MPH<br/><u>Humidity:</u><br/>' + humidity + '%</div>';
+        var singleCard = '<div class="border bg-primary bg-opacity-10 col-s-12 col-md-5 col-xl-2 m-2 p-3 text-center"><h3>' + date + '</h3><br/>' + '<img src="http://openweathermap.org/img/w/' + weatherIcon + '.png" alt="Icon""/><br/>' + weather + '<br/><br/><u>Temp:</u><br/>' + temp + 'F<br/><u>Wind speed:</u><br/>' + wind + 'MPH<br/><u>Humidity:</u><br/>' + humidity + '%</div>';
         forecastArr.push(singleCard);
     };
     forecast.innerHTML = forecastArr.join('');
