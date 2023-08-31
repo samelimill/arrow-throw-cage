@@ -36,7 +36,7 @@ function fetchChoices(event) {
     let searchValue = searchInput.value.trim();
     // Either does an api search for the input or alerts the user to enter a city
     if (searchValue){
-        fetch ('http://api.openweathermap.org/geo/1.0/direct?q='+searchValue+'&limit=5&appid='+apiKey)
+        fetch ('https://api.openweathermap.org/geo/1.0/direct?q='+searchValue+'&limit=5&appid='+apiKey)
             .then(function (response) {
                 return response.json();
             })
@@ -87,7 +87,7 @@ function getWeather(event){
             addHistory(event.target);
             getHistory();
         }; 
-        fetch ('http://api.openweathermap.org/data/2.5/forecast?lat=' + latSingle + '&lon=' + lonSingle + '&appid=' + apiKey + "&units=imperial")
+        fetch ('https://api.openweathermap.org/data/2.5/forecast?lat=' + latSingle + '&lon=' + lonSingle + '&appid=' + apiKey + "&units=imperial")
             .then(function(response) {
                 return response.json();
             })
