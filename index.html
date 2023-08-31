@@ -18,8 +18,8 @@
         <h1 class="text-center m-2">Weather Report</h1> 
     </header>
     <!--city input-->
-    <div id='main-container' class="row h-100 w-100">
-        <aside class="m-2 col-3 text-center">
+    <div id='main-container' class="row h-100 m-auto">
+        <aside class="p-2 col-sm-12 col-md-4 text-center">
             <h2>Search for a city:</h2>
             <form id="search-form" class="text-center">
                 <input id="search-input" class="text-center w-100" type="text" placeholder="Where to?">
@@ -31,16 +31,14 @@
                 <button id="clear-history" class="btn btn-danger w-100" type="button" aria-label="clear history">Clear History</button>
             </div>
         </aside>
-        <main id="weather-display" class='col-8'>
+        <main id="weather-display" class='col-sm-12 col-md-8'>
             <h2 id="main-header"></h2>
             <div id='search-option-container'>
                 <ul id="search-options-list" class="list-unstyled"></ul>
             </div>
-            <div id="forecast-container" class="w-100">
-                <div id="current-weather">
-                    <p id="current-results" class="m-2"></p>
-                </div>
-                <div id="forecast" class="row"></div>
+            <div id="forecast-container" class="mx-1 ">
+                <div id="current-weather" class='row m-auto'></div>
+                <div id="forecast" class="row m-auto"></div>
             </div>
         </main>
     <script src="assets/js/script.js"></script>

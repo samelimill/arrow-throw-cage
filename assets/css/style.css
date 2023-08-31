@@ -1,14 +1,21 @@
 * {
     box-sizing: border-box;
+    
 }
 
+body {
+    background-image: url('../clouds-1282314_1280.jpg');
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
 #main-container {
-    align-self: center;
     margin: auto;
 }
 
 h1,
-h2 {
+h2,
+h4,
+span {
     font-family: "Orbitron", sans-serif;
 }
 
