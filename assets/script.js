@@ -14,8 +14,7 @@ var forecastContainer = document.querySelector('#forecast-container');
 var currentWeather = document.querySelector('#current-weather');
 var forecast = document.querySelector('#forecast');
 
-clearHistoryButton.addEventListener('click', clearHistory);
-
+// Populates history list on load
 var storedList = getHistory();
 
 function getHistory(){
@@ -49,7 +48,8 @@ function fetchChoices(event) {
                     var state = data[i].state;
                     var lat = data[i].lat;
                     var lon = data[i].lon;
-                    var optionString = '<button id="option-select" data-lat=' +lat+' data-lon='+lon+' class="btn btn-outline-secondary fs-5 border rounded p-2 h-25 m-2 w-100 " aria-label="option"">'+name+", "+state+", "+country+'</button>';
+                    // Constructs a button as a string, contains all needed data for later functions
+                    var optionString = '<button id="option-select" data-lat=' +lat+' data-lon='+lon+' class="btn btn-light fs-5 border rounded p-2 h-25 m-2 w-100 " aria-label="option"">'+name+", "+state+", "+country+'</button>';
                     var optionListItem = document.createElement('li');
                     optionListItem.innerHTML = optionString;
                     searchOptionList.appendChild(optionListItem);
@@ -72,9 +72,8 @@ function clearOptions() {
     mainHeader.innerHTML="";
 };
 
-// Event listener for buttons in the returns search options
+// Event listener for buttons in the returns search options and history list, both go to the same function
 searchOptionList.addEventListener('click', getWeather);
-// Event listener for buttons in the history list
 historyList.addEventListener('click', getWeather);
 
 function getWeather(event){
@@ -83,6 +82,7 @@ function getWeather(event){
         mainHeader.textContent = event.target.textContent;
         var latSingle = event.target.getAttribute('data-lat');
         var lonSingle = event.target.getAttribute('data-lon');
+        // Only adds search to history and updates history list if results obtained from search options
         if (event.target.matches('#option-select')){
             addHistory(event.target);
             getHistory();
@@ -99,28 +99,33 @@ function getWeather(event){
     };
 };
 
+// Function adds new button to history list, constructed from data obtained from the button pushed in the option list
 function addHistory(choice) {
-    if (storedList==null){
-        storedList=[];
-    };
     var choiceName = choice.textContent;
     var choiceCity = choiceName.split(",");
     var latStorage = choice.getAttribute('data-lat');
     var lonStorage = choice.getAttribute('data-lon');
+    // Button as a string containing information gleaned from the button pressed in option list
     var storageString = '<button id="option-selected" data-lat=' + latStorage + ' data-lon=' + lonStorage + ' class="btn btn-light fs-5 rounded border p-2 h-25 col-12 my-1" aria-label="option"">' + choiceCity[0] + ', ' + choiceCity[1] + '</button>';
     storedList.push(storageString);
     localStorage.setItem('history', JSON.stringify(storedList));
 }
 
+clearHistoryButton.addEventListener('click', clearHistory);
+
 function clearHistory(){
     localStorage.setItem('history', '[]');
+    // Prevents list from repopulating if the user searches after clearing history but before reload
     storedList = [];
     getHistory();
 }
 
+// Function gathers data directly from whichever button is pressed in the history list or the search options list
 function showForecast(data){
+    // Weather for current day
     currentWeather.innerHTML= 
         '<div class="border col-12 bg-opacity-10 bg-info text-center m-2 p-3"><h2>' + data.list[0].dt_txt.slice(5, 10) + '</h2><br/><h2>' + data.list[0].weather[0].description + '</h2><br/><br/>' + 'Temperature: ' + data.list[0].main.temp + ' F <br/>' + 'Wind Speed: ' + data.list[0].wind.speed + ' MPH <br/>' + 'Humidity: ' + data.list[0].main.humidity + '%</div>';
+    // Constructs an array of div elements as strings, which are added to the forecast row
     var forecastArr = [];
     for (var i = 7; i<=40; i+=8){
         var date = data.list[i].dt_txt.slice(5, 10);
