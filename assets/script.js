@@ -18,7 +18,11 @@ var forecast = document.querySelector('#forecast');
 var storedList = getHistory();
 
 function getHistory(){
-    var storage = JSON.parse(localStorage.getItem('history'));
+    var storage = [];
+    if (localStorage.getItem('history') != null)(
+        storage = JSON.parse(localStorage.getItem('history'))
+    );
+    console.log(storage);
     historyList.innerHTML = storage.join('');
     return storage;
 };
